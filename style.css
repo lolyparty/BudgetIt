@@ -1,0 +1,310 @@
+*{
+    padding:0px;
+    margin:0px;
+}
+
+
+/*Styling budget UI showing total income and expenses*/
+.budgetarea{
+    text-align:center;
+    background:url('img/budget.png');
+    background-repeat:no-repeat;
+    background-clip: border-box !important;
+    background-size:cover;
+    background-position: center;
+    color:#fff;
+}
+
+.overlay{
+    background:rgba(0, 0, 0, 0.8);
+    background-size:100%;
+    padding:15px;
+}
+
+#budgetmonth{
+    padding-top:25px;
+}
+
+#budgettotal{
+    font-size:3rem;
+    padding:20px;
+}
+
+#incometotal{
+    background:rgba(22, 112, 247,0.6);
+    display:grid;
+    grid-template-columns: 50% 50%;
+    padding:10px 8px;
+    max-width:300px;
+    margin:15px auto !important;
+    border-radius:3px;
+    font-size: 1.2rem;
+
+}
+
+#expensestotal{
+    display:grid;
+    grid-template-columns: 50% 35% 15%;
+    max-width:300px;
+    margin:15px auto !important;
+    background:rgba(255, 17, 17,0.6);
+    padding:10px 8px;
+    border-radius:3px;
+    font-size: 1.2rem;
+
+}
+
+.percent{
+    background:rgba(255, 91, 91, 0.6);
+}
+
+
+
+.valueinput{
+    padding:10px;
+    background:rgb(228, 228, 228);
+    border:none;
+    /*text-align: center;*/
+}
+
+.addorsub{
+    max-width:100%;
+    margin:0px auto;
+}
+
+.addbtn{
+    color:rgba(26, 80, 161, 0.7);
+    font-size:2rem;
+    background:transparent;
+    vertical-align: middle;
+    border:none;
+    margin-left:5px;
+    cursor: pointer;
+}
+
+.addbtn:focus{
+    outline:none;
+}
+
+.addbtn:active{
+    transform:translateY(2px);
+}
+select{
+    height:40px;
+    width:10%;
+    border-radius:3px;
+    border:none;
+    margin-left:5px;
+}
+
+select:focus{
+    outline:none !important;
+}
+
+input{
+    height:40px;
+    border-radius:3px;
+    border:none;
+    margin:1px;
+}
+
+input:focus{
+    outline:none !important;
+}
+
+.descriptioninput{
+    width:40%;
+}
+
+.descriptioninput:focus, .value:focus{
+    border:1px solid rgba(26, 80, 161, 0.7);
+}
+
+.redexp:focus{
+    border:1px solid rgba(163, 20, 20, 0.7);
+}
+
+.value{
+    width:34%;
+}
+
+input::-webkit-input-placeholder{
+    padding-left: 10px;
+}
+
+.incomenexpenses{
+    padding:10px;
+    margin:0px auto;
+    font-size:1.1rem;
+}
+
+.desc{
+    float:left;
+    padding:7px 3px;
+    opacity:0.8;
+}
+
+.right{
+    padding:5px;
+    float:right;
+    width:40%;
+}
+
+.per_cent{
+    min-width:10%;
+    padding:4px;
+    float:left;
+    font-size:0.65rem;
+    text-align:center;
+    border-radius:3px;
+    transition:transform 0.5s;
+    vertical-align: middle !important;
+    margin:3px 0px;
+    color:rgba(255, 0, 0, 0.8);
+    background:rgba(255, 91, 91, 0.6);
+}
+
+.amt{
+    float:left;
+    padding:3px 3px;
+    min-width:65%;
+    transition:transform 0.5s;
+    font-size:1.05rem;
+}
+
+.incomeh, .expensesh{
+    margin:10px;  
+}
+
+.x-icon{
+    display:none;
+    border:none;
+    background:transparent;
+    font-size:1.2rem;
+    padding:3px 0px;
+    cursor: pointer;
+}
+
+.x-icon:focus{
+    outline:none;
+}
+
+.list:hover .x-icon{
+    display:block;
+}
+
+.list:hover .amt{
+    transform: translateX(-15px);
+}
+
+.list:hover .per_cent{
+    transform: translateX(-15px);
+}
+.delete{
+    display: inline-block;
+}
+
+.income, .expenses{
+    width:49%;
+    float:left;
+    padding:5px;
+}
+
+
+h2{
+    padding:5px;
+ 
+}
+
+.list{
+    padding:5px 0px;
+    border-bottom:1px solid #e9e9e9;
+    width:90%;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+.red{
+    color:rgba(255, 0, 0, 0.8);
+}
+
+.blue{
+    color:rgba(22, 112, 247,0.9);
+}
+
+.list:first-child { border-top: 1px solid #e7e7e7; }
+.list:nth-child(even) { background-color: #f7f7f7; }
+
+
+@media screen and (min-width:600px){
+    .addorsub{
+        max-width:90%;
+        margin:0px auto;
+    }
+}
+
+@media screen and (min-width:1000px){
+    .addorsub{
+        max-width:80%;
+        margin:0px auto;
+    }
+
+    .incomenexpenses{
+        margin-left:65px;
+    }
+}
+
+@media screen and (max-width:1020px){
+    .income, .expenses{
+        /* float: none; */
+        width:98%;
+        margin:10px;
+    }
+
+    .list{
+        width:93%;
+    }
+
+    .per_cent{
+        font-size: 0.6rem;
+        margin:3px 0px;
+    }
+}
+@media screen and (max-width:290px){
+    #expensestotal, #incometotal{
+        font-size: 0.75rem ;
+    }
+    #budgettotal{
+        font-size:2rem;
+    }
+}
+
+@media screen and (max-width:550px){
+    .right{
+        min-width:50%;
+    }
+}
+
+@media screen and (max-width:345px){
+    .valueinput{
+        padding:3px 1px 3px 1px;
+    }
+
+    .descriptioninput{
+        width:40%;
+    }
+    
+    .value{
+        width:30%;
+    }
+
+    .ion-ios-checkmark-outline, .ion-ios-checkmark-outline:before{
+        width:20px !important;
+        height:28px !important;
+    }
+}
