@@ -1,58 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet" type="text/css" >
-    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link
+      href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
     <title>Budgetit</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="budgetarea">
-            <div class="overlay">
-               
+      <div class="budgetarea">
+        <div class="overlay">
+          <div class="budgetdivs" id="budgetmonth">
+            Available Budget in <span class="month">*Month*:</span>
+          </div>
+          <div class="budgetdivs" id="budgettotal">+ 1,000.00</div>
 
-                    <div class="budgetdivs" id="budgetmonth">Available Budget in <span class="month">*Month*:</span></div>
-                    <div class="budgetdivs" id="budgettotal">+ 1,000.00</div>
+          <div class="budgetdivs" id="incometotal">
+            <div class="incometotaltext">INCOME</div>
+            <div class="incometotalamt">+ 10,000.00</div>
+          </div>
 
-                    <div class="budgetdivs" id="incometotal">
-                        <div class="incometotaltext">INCOME</div>
-                        <div class="incometotalamt">+ 10,000.00</div>
-                    </div>
-
-                    <div class="budgetdivs" id="expensestotal">
-                        <div class="expensestotaltext">EXPENSES</div>
-                        <div class="expensestotalamt">- 2,000.00</div>
-                        <div class="percent" id="totalpercent">50%</div>
-                    </div>
-
-                
-            </div>
+          <div class="budgetdivs" id="expensestotal">
+            <div class="expensestotaltext">EXPENSES</div>
+            <div class="expensestotalamt">- 2,000.00</div>
+            <div class="percent" id="totalpercent">50%</div>
+          </div>
         </div>
+      </div>
 
-        <div class="valueinput">
-            <div class="addorsub">
-                <select class="inc_or_dec">
-                    <option value="inc" selected>+</option>
-                    <option value="exp">-</option>
-                </select>
-                
-                <input class="descriptioninput" placeholder="Description" for="description" name="description">
-                <input class="value" placeholder="Value" name="value" for="value" type="number">
-                <button class="addbtn"><i class="ion-ios-checkmark-outline"></i></button>
-            </div>
-            
+      <div class="valueinput">
+        <div class="addorsub">
+          <select class="inc_or_dec">
+            <option value="inc" selected>+</option>
+            <option value="exp">-</option>
+          </select>
+
+          <input
+            class="descriptioninput"
+            placeholder="Description"
+            for="description"
+            name="description"
+          />
+          <input
+            class="value"
+            placeholder="Value"
+            name="value"
+            for="value"
+            type="number"
+          />
+          <button class="addbtn">
+            <i class="ion-ios-checkmark-outline"></i>
+          </button>
         </div>
+      </div>
 
-        <div class="incomenexpenses clearfix">
-
-            <div class="income" >
-                <div class="incomeh">
-                    <h3 class="blue">INCOME</h3>
-                </div>
-                <div class="incom">
-                     <div class="list clearfix" id="inc-0">
+      <div class="incomenexpenses clearfix">
+        <div class="income">
+          <div class="incomeh">
+            <h3 class="blue">INCOME</h3>
+          </div>
+          <div class="incom">
+            <!-- <div class="list clearfix" id="inc-0">
                     <div class="desc blue">Salary</div>
                     <div class="right clearfix">
                         <div class="amt blue">+ 2,000,000</div>
@@ -62,7 +75,7 @@
                     </div>
                 </div>
 
-                <div class="list clearfix">
+            <div class="list clearfix">
                     <div class="desc blue">car</div>
                     <div class="right clearfix">
                         <div class="amt blue">+ 2,000,000</div>
@@ -70,18 +83,16 @@
                             <button class="x-icon blue"><i class="ion-ios-close-outline"></i></button>
                         </div>
                     </div>
-                </div>
-                </div>
-               
-            </div>
+                </div> -->
+          </div>
+        </div>
 
-            <div class="expenses">
-                <div class="expensesh">
-                    <h3 class="red">EXPENSES</h3>
-                </div>
-                <div class="expense">
-                    
-                    <div class="list clearfix">
+        <div class="expenses">
+          <div class="expensesh">
+            <h3 class="red">EXPENSES</h3>
+          </div>
+          <div class="expense">
+            <!-- <div class="list clearfix">
                     <div class="desc red">Lamborgh</div>
                     <div class="right clearfix">
                         <div class="amt red">+ 2,000,00</div>
@@ -92,7 +103,7 @@
                     </div>
                 </div>
 
-                <div class="list clearfix" id="exp-0">
+            <div class="list clearfix" id="exp-0">
                     <div class="desc red">Wrist watch</div>
                     <div class="right clearfix">
                         <div class="amt red">+ 2,000,000</div>
@@ -101,18 +112,12 @@
                             <button class="x-icon red"><i class="ion-ios-close-outline"></i></button>
                         </div>
                     </div>
-                </div>
-                </div>
-                
-            </div>
-            
-
+                </div> -->
+          </div>
         </div>
-
+      </div>
     </div>
 
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
-
-
