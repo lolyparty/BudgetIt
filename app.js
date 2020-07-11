@@ -214,16 +214,16 @@ var appController = (function (uiCtrl, budgetCtrl) {
     }
   };
 
-  var deleteItem = function(){
-      var Item
-      Item = budget.createItem();
-      console.log(Item);
-  }
+  // var deleteItem = function(){
+  //     var Item
+  //     Item = budgetCtrl.createItem();
+  //     console.log(Item);
+  // }
 
   return (init = function () {
     domStrings = uiCtrl.getDom();
 
-    deleteItem();
+    // deleteItem();
 
     //display date
     uiCtrl.displayMonth();
