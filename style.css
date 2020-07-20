@@ -29,6 +29,10 @@
   padding: 20px;
 }
 
+.remove{
+  display:none;
+}
+
 #incometotal {
   background: rgba(22, 112, 247, 0.6);
   display: grid;
@@ -132,6 +136,7 @@ input::-webkit-input-placeholder {
   padding: 10px;
   margin: 0px auto;
   font-size: 1.1rem;
+  transition:all 2s ease-in-out !important;
 }
 
 .desc {
