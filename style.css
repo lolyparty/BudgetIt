@@ -115,13 +115,18 @@ input:focus {
   width: 40%;
 }
 
+.descriptioninput, .value{
+  padding-left:5px;
+}
+
+
 .descriptioninput:focus,
 .value:focus {
   border: 1px solid rgba(26, 80, 161, 0.7);
 }
 
 .redexp:focus {
-  border: 1px solid rgba(163, 20, 20, 0.7);
+  border: 1px solid rgba(163, 20, 20, 0.7) !important;
 }
 
 .value {
@@ -129,7 +134,7 @@ input:focus {
 }
 
 input::-webkit-input-placeholder {
-  padding-left: 10px;
+  padding-left: 5px;
 }
 
 .incomenexpenses {
@@ -230,10 +235,10 @@ h2 {
 }
 
 .red {
-  color: rgba(255, 0, 0, 0.8);
+  color: rgba(255, 0, 0, 0.8) !important;
 }
 
-.blue {
+.blue{
   color: rgba(22, 112, 247, 0.9);
 }
 
@@ -294,6 +299,13 @@ h2 {
   .right {
     min-width: 50%;
   }
+  .descriptioninput {
+    width: 39%;
+  }
+
+  .value {
+    width: 29%;
+  }
 }
 
 @media screen and (max-width: 345px) {
@@ -301,13 +313,7 @@ h2 {
     padding: 3px 1px 3px 1px;
   }
 
-  .descriptioninput {
-    width: 40%;
-  }
-
-  .value {
-    width: 30%;
-  }
+ 
 
   .ion-ios-checkmark-outline,
   .ion-ios-checkmark-outline:before {
