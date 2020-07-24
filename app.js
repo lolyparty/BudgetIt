@@ -140,6 +140,28 @@ var budgetController = (function () {
       // console.log(allPercs);
       return allPercs;
     },
+
+    pieChart: function(){
+      document.querySelector('#myChart').remove();
+       document.querySelector('#pie').insertAdjacentHTML('afterbegin','<canvas id="myChart" width="500" height="500"></canvas>');
+       var pieChart = document.querySelector('#myChart');
+
+        var myChart = new Chart(pieChart, 
+          {
+            type:'doughnut',
+            data:{
+              labels: ['Total Income', 'Total Expenses'],
+              datasets:[{
+                data: [Data.allValue.inc, Data.allValue.exp],
+                backgroundColor: ['rgba(22, 112, 247, 1)','rgba(255, 17, 17, 1)'],
+                borderWidth: 5,
+                label: 'Budget',
+              }],
+            },
+            options:{  
+            },
+          })
+    }
   };
 })();
 
@@ -281,8 +303,11 @@ var uiController = (function () {
     },
     delete:function(ID){
       // console.log(ID)
-      document.getElementById(ID).classList.add('remove');
-      document.getElementById(ID).style.display = 'none';
+      var elemRemoved = document.getElementById(ID);
+
+      //removes element completely from DOM
+      elemRemoved.parentNode.removeChild(elemRemoved);
+
 
     },
 
@@ -306,7 +331,11 @@ var uiController = (function () {
           
           )
     })
-    }
+    },
+    // displayChart: function(){
+    //   var myChart = document.querySelector('#myChart').getContext('2d');
+    //   return myChart
+    // }
   
   
   }
@@ -314,7 +343,9 @@ var uiController = (function () {
 
 //App controller
 var appController = (function (uiCtrl, budgetCtrl) {
-  var input, domStrings, Item, eachPercent
+  var input, domStrings, Item, eachPercent, ctx 
+
+  // ctx = uiCtrl.displayChart();
 
   var Budgetit = function(){
     var budgetUpdate
@@ -363,7 +394,9 @@ var appController = (function (uiCtrl, budgetCtrl) {
       //display budget
       Budgetit();
 
-     
+     //chart
+    //  console.log(ctx);
+     budgetCtrl.pieChart();
     }
   };
 
@@ -389,6 +422,8 @@ var appController = (function (uiCtrl, budgetCtrl) {
     //delete from ui
     uiCtrl.delete(item)
 
+    //chart
+    budgetCtrl.pieChart();
      
   }
 
