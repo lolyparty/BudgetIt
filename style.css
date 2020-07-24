@@ -250,6 +250,17 @@ h2 {
   background-color: #f7f7f7;
 }
 
+.piecontainer{
+  display:flex;
+  justify-content: center;
+  align-items:center
+}
+
+/* #myChart{
+  width:500px !important;
+  height:500px !important;
+} */
+
 @media screen and (min-width: 600px) {
   .addorsub {
     max-width: 90%;
