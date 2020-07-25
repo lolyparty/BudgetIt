@@ -1,6 +1,7 @@
 * {
   padding: 0px;
   margin: 0px;
+  overflow-x: hidden;
 }
 
 /*Styling budget UI showing total income and expenses*/
@@ -57,6 +58,8 @@
 
 .percent {
   background: rgba(255, 91, 91, 0.6);
+  font-size: 0.95rem;
+  padding:3px;
 }
 
 .valueinput {
@@ -187,8 +190,8 @@ input::-webkit-input-placeholder {
   display: none;
   border: none;
   background: transparent;
-  font-size: 1.2rem;
-  padding: 3px 0px;
+  font-size: 19px;
+  padding: 03px 0px 0px 0px;
   cursor: pointer;
 }
 
@@ -207,14 +210,21 @@ input::-webkit-input-placeholder {
 .list:hover .per_cent {
   transform: translateX(-15px);
 }
+
 .delete {
   display: inline-block;
 }
 
-.income,
-.expenses {
-  width: 49%;
+.income
+ {
+  width: 48.5%;
   float: left;
+  padding: 5px;
+}
+
+.expenses{
+  float:right;
+  width: 48.5%;
   padding: 5px;
 }
 
@@ -253,7 +263,8 @@ h2 {
 .piecontainer{
   display:flex;
   justify-content: center;
-  align-items:center
+  align-items:center;
+  margin-top:50px;
 }
 
 /* #myChart{
@@ -275,14 +286,14 @@ h2 {
   }
 
   .incomenexpenses {
-    margin-left: 65px;
+    margin-left: 60px;
   }
 }
 
 @media screen and (max-width: 1020px) {
   .income,
   .expenses {
-    /* float: none; */
+    float: none;
     width: 98%;
     margin: 10px;
   }
@@ -317,6 +328,11 @@ h2 {
   .value {
     width: 29%;
   }
+
+  #pie{
+    height:300px !important;
+    width:300px !important;
+  }
 }
 
 @media screen and (max-width: 345px) {
@@ -329,6 +345,6 @@ h2 {
   .ion-ios-checkmark-outline,
   .ion-ios-checkmark-outline:before {
     width: 20px !important;
-    height: 28px !important;
+    height: 19px !important;
   }
 }
