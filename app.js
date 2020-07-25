@@ -143,7 +143,7 @@ var budgetController = (function () {
 
     pieChart: function(){
       document.querySelector('#myChart').remove();
-       document.querySelector('#pie').insertAdjacentHTML('afterbegin','<canvas id="myChart" width="500" height="500"></canvas>');
+       document.querySelector('#pie').insertAdjacentHTML('afterbegin','<canvas id="myChart" width="400" height="400" aria-label="Pie chart of Icome and Expenses" role="img"></canvas>');
        var pieChart = document.querySelector('#myChart');
 
         var myChart = new Chart(pieChart, 
@@ -159,6 +159,12 @@ var budgetController = (function () {
               }],
             },
             options:{  
+              animation:{
+                duration: 2000,
+                easing:'easeInOutQuad',
+              },
+              responsive:true,
+              maintainAspectRatio:false,
             },
           })
     }
@@ -177,8 +183,8 @@ var uiController = (function () {
     incomeTotal: '.incometotalamt',
     expensesTotal: '.expensestotalamt',
     totalPercentage: '#totalpercent',
-    incomeDiv: '.income',
-    expensesDiv: '.expenses',
+    incomeDiv: '.incom',
+    expensesDiv: '.expense',
     delete:'.incomenexpenses',
   };
 
@@ -307,18 +313,19 @@ var uiController = (function () {
 
       //removes element completely from DOM
       elemRemoved.parentNode.removeChild(elemRemoved);
-
-
     },
 
     displayPercentages: function(percents){
       var percsDiv = document.querySelectorAll('.per_cent');
+      console.log(percsDiv);
+
       nodelist(percsDiv, function(current, index){
         if(percents[index] > 0){
           current.textContent = percents[index] + '%'
         } else{
           current.textContent = '--';
         }
+        
       });
   },
   onChange: function(){
@@ -353,7 +360,7 @@ var appController = (function (uiCtrl, budgetCtrl) {
     budgetCtrl.updatepercentage();
 
     budgetUpdate = budgetCtrl.getBudget();
-    console.log(budgetUpdate);
+    // console.log(budgetUpdate);
 
     //display budget
     uiCtrl.displayBudget(budgetUpdate);
@@ -410,17 +417,17 @@ var appController = (function (uiCtrl, budgetCtrl) {
       // console.log(itemtype);    
 
       //delete item from bdudget
-      console.log(itemtype)
+      // console.log(itemtype)
     budgetCtrl.ctrldelete(itemtype,itemId);
 
     budgetCtrl.calculateBudget(itemtype)
 
+    //delete from ui
+    uiCtrl.delete(item)
+
     //update budget
     budgetCtrl.calcBudget();
     Budgetit();
-
-    //delete from ui
-    uiCtrl.delete(item)
 
     //chart
     budgetCtrl.pieChart();
