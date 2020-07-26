@@ -387,7 +387,7 @@ h2 {
 
 @media screen and (max-width:227px){
   #budgettotal{
-    padding:15px 10px;
-    font-size:1.6rem;
+    padding:15px 10px !important;
+    font-size:1.6rem !important;
   }
 }
