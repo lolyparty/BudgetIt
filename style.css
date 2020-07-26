@@ -27,17 +27,13 @@
 
 #budgettotal {
   font-size: 3rem;
-  padding: 20px;
-}
-
-.remove{
-  display:none;
+  padding: 15px;
 }
 
 #incometotal {
   background: rgba(22, 112, 247, 0.6);
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 40% 48% 12%;
   padding: 10px 8px;
   max-width: 300px;
   margin: 15px auto !important;
@@ -47,7 +43,7 @@
 
 #expensestotal {
   display: grid;
-  grid-template-columns: 50% 35% 15%;
+  grid-template-columns: 40% 48% 12%;
   max-width: 300px;
   margin: 15px auto !important;
   background: rgba(255, 17, 17, 0.6);
@@ -59,14 +55,13 @@
 .percent {
   background: rgba(255, 91, 91, 0.6);
   font-size: 0.95rem;
-  padding:3px;
+  padding:3px 2px;
 }
 
 .valueinput {
   padding: 10px;
   background: rgb(228, 228, 228);
   border: none;
-  /*text-align: center;*/
 }
 
 .addorsub {
@@ -179,6 +174,7 @@ input::-webkit-input-placeholder {
   min-width: 65%;
   transition: transform 0.5s;
   font-size: 1.05rem;
+  text-align: center;
 }
 
 .incomeh,
@@ -191,8 +187,12 @@ input::-webkit-input-placeholder {
   border: none;
   background: transparent;
   font-size: 19px;
-  padding: 03px 0px 0px 0px;
+  /* padding: 1px 0px 0px 0px; */
   cursor: pointer;
+}
+
+.ion-ios-close-outline:before{
+  vertical-align: middle !important;
 }
 
 .x-icon:focus {
@@ -204,7 +204,7 @@ input::-webkit-input-placeholder {
 }
 
 .list:hover .amt {
-  transform: translateX(-15px);
+  transform: translateX(-20px);
 }
 
 .list:hover .per_cent {
@@ -337,14 +337,16 @@ h2 {
 
 @media screen and (max-width: 345px) {
   .valueinput {
-    padding: 3px 1px 3px 1px;
+    padding: 3px 0px 3px 1px;
   }
 
- 
+  .addbtn{
+    margin-left:4px;
+  }
 
   .ion-ios-checkmark-outline,
   .ion-ios-checkmark-outline:before {
-    width: 20px !important;
+    width: 25px !important;
     height: 19px !important;
   }
 }
