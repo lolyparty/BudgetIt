@@ -27,7 +27,7 @@
 
 #budgettotal {
   font-size: 3rem;
-  padding: 15px;
+  padding: 15px 10px;
 }
 
 #incometotal {
@@ -313,8 +313,9 @@ h2 {
   #incometotal, .percent{
     font-size: 0.85rem;
   }
-  #budgettotal {
-    font-size: 1.6rem;
+
+  #budgettotal{
+    font-size:1.6rem !important;
   }
 
   .percent{
@@ -382,12 +383,5 @@ h2 {
 @media screen and (max-width: 372px) {
   .list:hover .amt {
     transform: translateX(-10px);
-  }
-}
-
-@media screen and (max-width:227px){
-  #budgettotal{
-    padding:15px 10px !important;
-    font-size:1.6rem !important;
   }
 }
