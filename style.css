@@ -38,7 +38,7 @@
   max-width: 300px;
   margin: 15px auto !important;
   border-radius: 3px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 #expensestotal {
@@ -49,13 +49,13 @@
   background: rgba(255, 17, 17, 0.6);
   padding: 10px 8px;
   border-radius: 3px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .percent {
   background: rgba(255, 91, 91, 0.6);
   font-size: 0.95rem;
-  padding:3px 2px;
+  padding:1px 2px;
 }
 
 .valueinput {
