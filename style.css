@@ -384,3 +384,10 @@ h2 {
     transform: translateX(-10px);
   }
 }
+
+@media screen and (max-width:227px){
+  #budgettotal{
+    padding:15px 10px;
+    font-size:1.6rem;
+  }
+}
