@@ -317,7 +317,7 @@ var uiController = (function () {
 
     displayPercentages: function(percents){
       var percsDiv = document.querySelectorAll('.per_cent');
-      console.log(percsDiv);
+      // console.log(percsDiv);
 
       nodelist(percsDiv, function(current, index){
         if(percents[index] > 0){
@@ -371,7 +371,7 @@ var appController = (function (uiCtrl, budgetCtrl) {
 
      //get percentages
      eachPercent = budgetCtrl.getPercentages();
-     console.log(eachPercent)
+    //  console.log(eachPercent)
 
      //display in UI
     uiCtrl.displayPercentages(eachPercent);
