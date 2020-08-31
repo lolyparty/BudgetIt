@@ -5,13 +5,16 @@ var budgetController = (function () {
     this.description = description;
     this.Value = Value;
     this.percentage = -1;
+    this.month = 0;    
   };
 
   var income = function (id, description, Value) {
     this.id = id;
     this.description = description;
     this.Value = Value;
+    this.month = 0;
   };
+
 
   var Data;
   if (localStorage.getItem('Data')) {
@@ -106,7 +109,7 @@ var budgetController = (function () {
     },
 
     expPercentages: function () {
-      Data.allItems.exp.map((cur) => {
+      Data.allItems.exp.forEach((cur) => {
         if (Data.allValue.inc > Data.allValue.exp) {
           cur.percentage = (cur.Value / Data.allValue.inc) * 100;
         } else {
@@ -122,6 +125,15 @@ var budgetController = (function () {
       });
       // console.log(allPercs);
       return allPercs;
+    },
+
+    inputMonth: function(cur,month){
+        cur.month = month
+    },
+
+    returnMonth: function(el){
+      month = el.map((cur)=> cur.month)
+      return month
     },
 
     pieChart: function () {
@@ -216,24 +228,32 @@ var uiController = (function () {
   };
 
   return {
-    displayMonth: function () {
-      var currentDate, month, Year, currentMonth;
+    getMonth: function () {
+      var currentDate;
       currentDate = new Date();
-      month = currentDate.getMonth();
-      Year = currentDate.getFullYear();
+      let todaysDate = {
+        month: currentDate.getMonth(),
+        Year: currentDate.getFullYear(),
+        Day: currentDate.getDate(),
+      };
 
+      return todaysDate;      
+    },
+
+    displayMonth: function(month, Year){
+      
       var months = [
-        'January',
+        'January', //28
         'February',
         'March',
-        'April',
+        'April', //30 3
         'May',
-        'June',
+        'June', //30 5
         'July',
         'August',
-        'September',
+        'September', //30 8
         'October',
-        'November',
+        'November', //30 10
         'December',
       ];
       currentMonth = months[month];
@@ -352,7 +372,7 @@ var uiController = (function () {
 var appController = (function (uiCtrl, budgetCtrl) {
   var input, domStrings, Item, eachPercent, ctx;
 
-
+  let getDate = uiCtrl.getMonth()
   var Budgetit = function () {
     var budgetUpdate;
 
@@ -384,6 +404,9 @@ var appController = (function (uiCtrl, budgetCtrl) {
     if ((input.Value > 0) & (input.desc !== '') & (input !== isNaN)) {
       //create new item
       Item = budgetCtrl.createItem(input.Type, input.desc, input.Value);
+      
+
+      budgetCtrl.inputMonth(Item,getDate.month);
       // console.log(Item);
 
       //clear
@@ -404,7 +427,6 @@ var appController = (function (uiCtrl, budgetCtrl) {
 
       //local Storage
       localStorage.setItem('Data', JSON.stringify(budgetCtrl.getData()));
-      console.log(JSON.parse(localStorage.getItem('Data')));
     }
   };
 
@@ -432,8 +454,8 @@ var appController = (function (uiCtrl, budgetCtrl) {
 
     //local Storage
     localStorage.setItem('Data', JSON.stringify(budgetCtrl.getData()));
-    console.log(JSON.parse(localStorage.getItem('Data')));
-    console.log(budgetCtrl.getData());
+    // console.log(JSON.parse(localStorage.getItem('Data')));
+    // console.log(budgetCtrl.getData());
   };
 
   return (init = function () {
@@ -455,36 +477,48 @@ var appController = (function (uiCtrl, budgetCtrl) {
       .addEventListener('click', deleteItem);
 
     //display date
-    uiCtrl.displayMonth();
+    uiCtrl.displayMonth(getDate.month, getDate.Year);
 
-    // var bdget = budgetCtrl.getBudget({});
 
-    // console.log(bdget);
 
+    //load stored data if any
     if (localStorage.getItem('Data') !== null) {
       let storedData = JSON.parse(localStorage.getItem('Data'));
-      // console.log(storedData)
-      console.log(budgetCtrl.getData());
+      
+      let entryMonthinc = budgetCtrl.returnMonth(storedData.allItems.inc)
+      console.log(entryMonthinc)
+
+      let entryMonthexp = budgetCtrl.returnMonth(storedData.allItems.exp)
+      console.log(entryMonthexp)
+
+      if((getDate.month - entryMonthexp[entryMonthexp.length - 1] > 0 || getDate.month -  entryMonthinc[entryMonthinc.length - 1] > 0)){
+        localStorage.clear()
+      }
+
+      if (localStorage.getItem('Data') !== null){
+        let Data = JSON.parse(localStorage.getItem('Data'));
 
       uiCtrl.displayBudget({
-        totalinc: storedData.allValue.inc,
-        totalexp: storedData.allValue.exp,
-        budget: storedData.totalBudget,
-        percentage: storedData.percentage,
+        totalinc: Data.allValue.inc,
+        totalexp: Data.allValue.exp,
+        budget: Data.totalBudget,
+        percentage: Data.percentage,
       });
 
       //display localStorage data
-      storedData.allItems.inc.forEach((cur)=>{
-        uiCtrl.displayItem(cur,'inc');
-      })
-      storedData.allItems.exp.forEach((cur)=>{
-        uiCtrl.displayItem(cur,'exp');
-      })
+      Data.allItems.inc.forEach((cur) => {
+        uiCtrl.displayItem(cur, 'inc');
+      });
+      Data.allItems.exp.forEach((cur) => {
+        uiCtrl.displayItem(cur, 'exp');
+      });
 
       Budgetit();
 
       //Chart
       budgetCtrl.pieChart();
+      }
+      
     } else {
       uiCtrl.displayBudget({
         totalinc: 0,
