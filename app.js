@@ -52,14 +52,11 @@ var budgetController = (function () {
       }
 
       Data.allItems[type].push(newItem);
-      // console.log(newItem)
       return newItem;
     },
 
     updateBudget: function (type, Value) {
       Data.allValue[type] = Data.allValue[type] + Value;
-
-      // console.log(Data.allValue[type])
     },
 
     calcBudget: function () {
@@ -90,14 +87,12 @@ var budgetController = (function () {
         sum += cur.Value;
       });
       Data.allValue[type] = sum;
-      // console.log(Data.allValue[type])
     },
 
     ctrldelete: function (type, id) {
       var IDs, indexx;
 
       IDs = Data.allItems[type].map(function (el) {
-        // console.log(el.id)
         return el.id;
       });
 
@@ -123,7 +118,6 @@ var budgetController = (function () {
       allPercs = Data.allItems.exp.map((cur) => {
         return Math.round(cur.percentage);
       });
-      // console.log(allPercs);
       return allPercs;
     },
 
@@ -335,7 +329,6 @@ var uiController = (function () {
       }
     },
     delete: function (ID) {
-      // console.log(ID)
       var elemRemoved = document.getElementById(ID);
 
       //removes element completely from DOM
@@ -344,7 +337,6 @@ var uiController = (function () {
 
     displayPercentages: function (percents) {
       var percsDiv = document.querySelectorAll('.per_cent');
-      // console.log(percsDiv);
 
       nodelist(percsDiv, function (current, index) {
         if (percents[index] > 0) {
@@ -380,7 +372,6 @@ var appController = (function (uiCtrl, budgetCtrl) {
     budgetCtrl.updatepercentage();
 
     budgetUpdate = budgetCtrl.getBudget();
-    // console.log(budgetUpdate);
 
     //display budget
     uiCtrl.displayBudget(budgetUpdate);
@@ -407,7 +398,6 @@ var appController = (function (uiCtrl, budgetCtrl) {
       
 
       budgetCtrl.inputMonth(Item,getDate.month);
-      // console.log(Item);
 
       //clear
       uiCtrl.clearFields();
@@ -454,8 +444,6 @@ var appController = (function (uiCtrl, budgetCtrl) {
 
     //local Storage
     localStorage.setItem('Data', JSON.stringify(budgetCtrl.getData()));
-    // console.log(JSON.parse(localStorage.getItem('Data')));
-    // console.log(budgetCtrl.getData());
   };
 
   return (init = function () {
@@ -486,10 +474,8 @@ var appController = (function (uiCtrl, budgetCtrl) {
       let storedData = JSON.parse(localStorage.getItem('Data'));
       
       let entryMonthinc = budgetCtrl.returnMonth(storedData.allItems.inc)
-      console.log(entryMonthinc)
 
       let entryMonthexp = budgetCtrl.returnMonth(storedData.allItems.exp)
-      console.log(entryMonthexp)
 
       if((getDate.month - entryMonthexp[entryMonthexp.length - 1] > 0 || getDate.month -  entryMonthinc[entryMonthinc.length - 1] > 0)){
         localStorage.clear()
