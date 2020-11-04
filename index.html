@@ -49,7 +49,7 @@
 
       <div class="valueinput">
         <div class="addorsub">
-          <select class="inc_or_dec">
+          <select class="inc_or_dec" aria-label="Income or Expense option">
             <option value="inc" selected>+</option>
             <option value="exp">-</option>
           </select>
@@ -59,6 +59,7 @@
             placeholder="Description"
             for="description"
             name="description"
+            aria-label="Description of item"
           />
           <input
             class="value"
@@ -66,8 +67,9 @@
             name="value"
             for="value"
             type="number"
+            aria-label="Value of item"
           />
-          <button class="addbtn">
+          <button class="addbtn" aria-label="Add to budget">
             <i class="ion-ios-checkmark-outline"></i>
           </button>
         </div>

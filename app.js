@@ -523,6 +523,4 @@ init();
 /**************************Register Service worker********************/
 if('serviceWorker' in navigator){
   navigator.serviceWorker.register('sw.js')
-  .then(()=>{console.log('service worker registered')})
-  .catch(()=>{'Error registering service worker'})
 }
