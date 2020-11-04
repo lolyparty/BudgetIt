@@ -1,10 +1,11 @@
 //cahe assets;
-const cacheName = 'cache-v1';
+const cacheName = 'cache-v2';
 const cachedAssets = [
     '/',
     '/index.html',
     'style.css',
     'app.js',
+    'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css',
     'icons/budgetit-48.png',
     'icons/budgetit-72.png',
     'icons/budgetit-96.png',
@@ -15,7 +16,7 @@ const cachedAssets = [
     'icons/budgetit-180.png',
     'icons/budgetit-192.png',
     'icons/budgetit-512.png',
-    'img/budget.png'
+    'img/budget.jpeg'
 ]
 
 self.addEventListener('install',(e)=>{
@@ -31,10 +32,10 @@ self.addEventListener('activate',(e)=>{
     e.waitUntil(caches.keys().then(keys=>{
         return Promise.all(keys
             .filter(key=>key !== cacheName)
-            .map(key=>caches.delete(key)))
+            .map(key=>caches.delete(key)));
     })
-    .catch(()=>console.log('Error deleting old cached assets')))
-})
+    )}
+)
 
 self.addEventListener('fetch',(e)=>{
     e.respondWith(
