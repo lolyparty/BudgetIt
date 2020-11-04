@@ -6,6 +6,7 @@ const cachedAssets = [
     'style.css',
     'app.js',
     'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css',
+    'ionicons/2.0.1/css/ionicons.min.css',
     'icons/budgetit-48.png',
     'icons/budgetit-72.png',
     'icons/budgetit-96.png',
