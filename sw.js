@@ -1,5 +1,5 @@
 //cahe assets;
-const cacheName = 'cache-v2';
+const cacheName = 'cache-v3';
 const cachedAssets = [
     '/',
     '/index.html',

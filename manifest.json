@@ -1,6 +1,6 @@
 {
     "name":"BudgetIt",
-    "start_url":"index.html",
+    "start_url":"/index.html",
     "short_name":"BudgetIt",
     "description":"A progressive web app to keep track of your monthly expenses",
     "display":"standalone",
