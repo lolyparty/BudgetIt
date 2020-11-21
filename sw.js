@@ -8,32 +8,30 @@ const cachedAssets = [
     'img/budget.jpeg'
 ]
 
-//install event
-self.addEventListener('install',(event)=>{
-    event.waitUntil(caches.open(cacheName).then(cache=>{
-         cache.addAll(cachedAssets)
-    }))
-})
-
-
-
-// activate event
-self.addEventListener('activate',evt=>{
-    evt.waitUntil(
-        caches.keys().then(keys=>{
-            return Promise.all(keys
-                .filter(key => key !== cacheName)
-                .map(key=>caches.delete(key)))
-        })
+self.addEventListener('install',(e)=>{
+    e.waitUntil(caches.open(cacheName)
+    .then((cache)=>{
+        cache.addAll(cachedAssets)
+    })
+    .catch(error=>error)
     )
 })
 
-self.addEventListener('fetch',evt=>{
-    console.log('fetch request successful')
-    evt.respondWith(
-        caches.match(evt.request)
+self.addEventListener('activate',(e)=>{
+    e.waitUntil(caches.keys().then(keys=>{
+        return Promise.all(keys
+            .filter(key=>key !== cacheName)
+            .map(key=>caches.delete(key)));
+    })
+    )}
+)
+
+self.addEventListener('fetch',(e)=>{
+    e.respondWith(
+        caches.match(e.request)
         .then(cacheRes=>{
-            return cacheRes || fetch(evt.request)
+            return cacheRes || fetch(e.request)
         })
+        .catch(error=>error)
     )
 })
