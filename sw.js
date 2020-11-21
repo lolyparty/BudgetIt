@@ -5,6 +5,7 @@ const cachedAssets = [
     '/index.html',
     'style.css',
     'app.js',
+    'img/budget.jpeg',
     'icons/budgetit-48.png',
     'icons/budgetit-72.png',
     'icons/budgetit-96.png',
@@ -15,7 +16,6 @@ const cachedAssets = [
     'icons/budgetit-180.png',
     'icons/budgetit-192.png',
     'icons/budgetit-512.png',
-    'img/budget.jpeg'
 ]
 
 self.addEventListener('install',(e)=>{
