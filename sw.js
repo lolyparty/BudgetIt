@@ -1,11 +1,21 @@
 //cahe assets;
-const cacheName = 'cache-v4';
+const cacheName = 'cache-v2';
 const cachedAssets = [
     '/',
     '/index.html',
     'style.css',
     'app.js',
-    'img/budget.jpeg'
+    'img/budget.jpeg',
+    'icons/budgetit-48.png',
+    'icons/budgetit-72.png',
+    'icons/budgetit-96.png',
+    'icons/budgetit-120.png',
+    'icons/budgetit-144.png',
+    'icons/budgetit-152.png',
+    'icons/budgetit-167.png',
+    'icons/budgetit-180.png',
+    'icons/budgetit-192.png',
+    'icons/budgetit-512.png',
 ]
 
 self.addEventListener('install',(e)=>{
